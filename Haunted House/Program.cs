@@ -34,6 +34,7 @@ namespace Haunted_House
                     Console.Clear();
                     Console.WriteLine($"Please select the door you would like to use \n");
                     Console.WriteLine(house.getLocation());
+                    
                     input = Console.ReadLine();
 
                     
@@ -88,7 +89,7 @@ namespace Haunted_House
         }
         public void moveRoom()
         {
-            CurrentRoom.RemoveOccupant("Bob");
+            
 
         }
     }
@@ -132,6 +133,14 @@ namespace Haunted_House
                 return Room1;
             }
         }
+        public virtual void Lock()
+        {
+
+        }
+        public virtual void Unlock()
+        {
+
+        }
         public virtual bool lockStatus() 
         {
             return false;
@@ -146,11 +155,11 @@ namespace Haunted_House
             Room1 = Room1_;
             Room2 = Room2_;
         }
-        public void Lock()
+        public override void Lock()
         {
             locked = true;
         }
-        public void Unlock()
+        public override void Unlock()
         {
             locked = false;
         }
