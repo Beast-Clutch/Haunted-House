@@ -11,10 +11,13 @@ namespace Haunted_House
     {
         static void Main(string[] args)
         {
-            House house = new House();
+            
             bool stop = false;
             string input;
-            
+            Console.WriteLine("Please enter your Name: ");
+            string name = Console.ReadLine();
+
+            House house = new House(name);
             while (!stop)
             {
                 Console.Clear();
@@ -47,29 +50,31 @@ namespace Haunted_House
     public class House
     {
         public Room CurrentRoom;
-        //Dictionary<String, Room> Rooms1 = new Dictionary<String, Room>();
-        private List<Room> Rooms = new List<Room>();
+        private Dictionary<String, Room> Rooms = new Dictionary<String, Room>();
+        //private List<Room> Rooms1 = new List<Room>();
 
-        public House()
+        public House(string name)
         {
-            //Creation of Rooms and Doors
+            //Creation of Rooms and adding to dictionary
             Room r0 = new Room("Hallway", 2);
-            Rooms.Add(r0);
+            Rooms.Add(r0.getName(), r0);
             Room r1 = new Room("Living Room", 8);
-            Rooms.Add(r1);
+            Rooms.Add(r1.getName(), r1);
             Room r2 = new Room("Outside", 10000);
-            Rooms.Add(r2);
+            Rooms.Add(r2.getName(), r2);
             Room r3 = new Room("Kitchen", 5);
-            Rooms.Add(r3);
+            Rooms.Add(r3.getName(), r3);
             Room r4 = new Room("Rear Hall", 2);
-            Rooms.Add(r4);
+            Rooms.Add(r4.getName(), r4);
             Room r5 = new Room("Store", 2);
-            Rooms.Add(r5);
+            Rooms.Add(r5.getName(), r5);
             Room r6 = new Room("Utility", 3);
-            Rooms.Add(r6);
+            Rooms.Add(r6.getName(), r6);
             Room r7 = new Room("WC", 1);
-            Rooms.Add(r7);
-            r0.AddOccupant("Bob");
+            Rooms.Add(r7.getName(), r7);
+            // Adding User to initial room
+            r0.AddOccupant(name);
+            // Adding doors
             r0.AddDoor(r1);
             r0.AddLockableDoor(r2);
             r1.AddDoor(r3);
