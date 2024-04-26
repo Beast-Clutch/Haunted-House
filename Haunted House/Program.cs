@@ -14,7 +14,7 @@ namespace Haunted_House
             
             bool stop = false;
             string input;
-            Console.WriteLine("Please enter your Name: ");
+            Console.WriteLine($"To Start, \nPlease enter your Name: ");
             string name = Console.ReadLine();
 
             House house = new House(name);
